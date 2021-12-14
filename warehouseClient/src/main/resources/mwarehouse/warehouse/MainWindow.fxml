@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mwarehouse.warehouse.MainController">
+   <children>
+      <Button fx:id="button_otchet" layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#ShowDialogForSaving" style="-fx-background-color: #2E3348;">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="button_view" layoutX="1.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Просмотр" textFill="#fafafa">
+         <font>
+            <Font name="Corbel" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_add" layoutX="144.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Добавить" textFill="#fafafa">
+         <font>
+            <Font name="Corbel" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_edit" layoutX="280.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Редактировать" textFill="#fafafa">
+         <font>
+            <Font name="Corbel" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_delete" layoutX="471.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Удалить" textFill="#fafafa">
+         <font>
+            <Font name="Corbel" size="24.0" />
+         </font>
+      </Button>
+      <Line endX="800.0" endY="535.0" layoutY="-20.0" startY="535.0" stroke="#2e3348" strokeWidth="3.0" />
+      <AnchorPane layoutY="86.0" prefHeight="540.0" prefWidth="800.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <TableView fx:id="table_user" prefHeight="428.0" prefWidth="800.0">
+              <columns>
+                <TableColumn fx:id="column_id" prefWidth="129.59998166561127" text="ID пользователя" />
+                <TableColumn fx:id="column_name" minWidth="0.0" prefWidth="156.0" text="Имя" />
+                  <TableColumn fx:id="column_login" prefWidth="175.20001220703125" text="Логин" />
+                  <TableColumn fx:id="column_password" prefWidth="182.39999389648438" text="Пароль" />
+                  <TableColumn fx:id="column_statusUser" prefWidth="161.60003662109375" text="Статус" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="515.0" prefHeight="111.0" prefWidth="800.0" style="-fx-background-color: #ff9932;">
+         <children>
+            <Button fx:id="button_exit" layoutX="642.0" layoutY="57.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: #2E3348; -fx-border-radius: 5px;" text="Выход" textFill="#fafafa">
+               <font>
+                  <Font name="Corbel" size="24.0" />
+               </font>
+            </Button>
+<!--            <TextField fx:id="field_id" layoutX="10.0" layoutY="441.0" prefHeight="29.0" prefWidth="120.0" promptText="ID пользователя" style="-fx-border-color: #2E3348; -fx-border-radius: 5px;">-->
+<!--               <font>-->
+<!--                  <Font name="Corbel" size="14.0" />-->
+<!--               </font>-->
+<!--            </TextField>-->
+            <TextField fx:id="field_name" layoutX="136.0" layoutY="17.0" prefHeight="30.0" prefWidth="155.0" promptText="Имя" style="-fx-border-color: #2E3348; -fx-border-radius: 5px; -fx-background-color: #d1d1d1; -fx-font-style: red;">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="field_login" layoutX="296.0" layoutY="17.0" prefHeight="30.0" prefWidth="168.0" promptText="Логин" style="-fx-border-color: #2E3348; -fx-border-radius: 5px; -fx-background-color: #d1d1d1; -fx-font-color: #FFFFFF;">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="field_password" layoutX="469.0" layoutY="17.0" prefHeight="30.0" prefWidth="168.0" promptText="Пароль" style="-fx-border-color: #2E3348; -fx-border-radius: 5px; -fx-background-color: #d1d1d1; -fx-font-color: #FFFFFF;">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="field_status" layoutX="642.0" layoutY="17.0" prefHeight="29.0" prefWidth="143.0" promptText="Статус" style="-fx-border-color: #2E3348; -fx-border-radius: 5px; -fx-background-color: #d1d1d1; -fx-font-color: #FFFFFF;">
+               <font>
+                  <Font name="Corbel" size="14.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="100.0" fitWidth="114.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/something.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="field_unCorrect" layoutX="138.0" layoutY="66.0" prefHeight="28.0" prefWidth="495.0" style="-fx-background-color: #ff9932;">
+               <font>
+                  <Font name="Corbel" size="15.0" />
+               </font></TextField>
+         </children></AnchorPane>
+      <TextField fx:id="filterField" layoutX="593.0" layoutY="50.0" prefHeight="28.0" prefWidth="199.0" promptText="Поиск" style="-fx-background-color: #fafafa;">
+         <font>
+            <Font name="Corbel Italic" size="15.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

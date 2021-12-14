@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mwarehouse.warehouse.Controller">
+   <children>
+      <AnchorPane layoutY="93.0" prefHeight="306.0" prefWidth="700.0" style="-fx-background-color: fafafa;">
+         <children>
+            <TextField fx:id="login_field" layoutX="226.0" layoutY="79.0" prefHeight="38.0" prefWidth="247.0" promptText="Логин" style="-fx-background-color: #fafafa; -fx-border-color: #2E3348; -fx-border-radius: 5px;">
+               <font>
+                  <Font name="Corbel Italic" size="19.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="password_field" layoutX="226.0" layoutY="128.0" prefHeight="38.0" prefWidth="247.0" promptText="Пароль" style="-fx-background-color: #fafafa; -fx-border-color: #2E3348; -fx-border-radius: 5px;">
+               <font>
+                  <Font name="Corbel Italic" size="19.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="SignIn_Button" layoutX="226.0" layoutY="187.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="247.0" style="-fx-background-color: #2E3348;" text="Войти" textFill="#fafafa">
+               <font>
+                  <Font name="Corbel" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="SignUp_Button" layoutX="226.0" layoutY="237.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="247.0" style="-fx-background-color: #FF8C00;" text="Зарегистрироваться" textFill="#fafafa">
+               <font>
+                  <Font name="Corbel" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Circle cache="true" fill="#f4f4f4" layoutX="350.0" layoutY="93.0" radius="65.0" stroke="#fafafa" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <Blend mode="OVERLAY" />
+         </effect>
+      </Circle>
+      <Text fill="#fafafa" layoutX="18.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вход в систему" wrappingWidth="225.86077880859375">
+         <font>
+            <Font name="Corbel" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="117.0" fitWidth="102.0" layoutX="299.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/q.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

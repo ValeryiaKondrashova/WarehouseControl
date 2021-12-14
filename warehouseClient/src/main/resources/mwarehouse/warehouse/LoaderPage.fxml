@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mwarehouse.warehouse.LoaderController">
+    <children>
+        <Button fx:id="button_otchet" layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#ShowDialogForSaving" style="-fx-background-color: #2E3348;">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/save.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <AnchorPane layoutY="84.0" prefHeight="536.0" prefWidth="748.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <TableView fx:id="table_tasks" prefHeight="429.0" prefWidth="800.0">
+                    <columns>
+                        <TableColumn fx:id="id_column" prefWidth="87.19999694824219" text="ID" />
+                        <TableColumn fx:id="task_column" prefWidth="712.0" text="Задание" />
+                    </columns>
+                </TableView>
+                <AnchorPane layoutX="-1.0" layoutY="430.0" prefHeight="106.0" prefWidth="803.0" style="-fx-background-color: #ff9932;">
+                    <children>
+                        <Button fx:id="button_exit_byLoader" layoutX="647.0" layoutY="51.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="144.0" style="-fx-background-color: #2E3348;" text="Выход" textFill="#fafafa">
+                            <font>
+                                <Font name="Corbel" size="24.0" />
+                            </font>
+                        </Button>
+                        <ImageView fitHeight="100.0" fitWidth="114.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/something.png" />
+                            </image>
+                        </ImageView>
+                  <Button fx:id="button_put" layoutX="383.0" layoutY="51.0" mnemonicParsing="false" style="-fx-background-color: #FF4500;" text="Беру на выполнение!" textFill="#fafafa">
+                     <font>
+                        <Font name="Corbel" size="24.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="unCorrect_field" layoutX="138.0" layoutY="51.0" prefHeight="26.0" prefWidth="235.0" style="-fx-background-color: #ff9932;">
+                     <font>
+                        <Font name="Corbel" size="24.0" />
+                     </font>
+                  </TextField>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <Line endX="800.0" endY="535.0" layoutY="-20.0" startY="535.0" stroke="#2e3348" strokeWidth="3.0" />
+        <Button fx:id="button_view_byLoader" layoutX="1.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Просмотреть задания" textFill="#fafafa">
+            <font>
+                <Font name="Corbel" size="24.0" />
+            </font>
+        </Button>
+        <TextField fx:id="filterField" layoutX="595.0" layoutY="49.0" prefHeight="28.0" prefWidth="190.0" promptText="Поиск" style="-fx-background-color: #fafafa;">
+            <font>
+                <Font name="Corbel Italic" size="15.0" />
+            </font></TextField>
+    </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="550.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mwarehouse.warehouse.AddTaskController">
+    <children>
+        <AnchorPane layoutX="-1.0" layoutY="61.0" prefHeight="407.0" prefWidth="516.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <TableView fx:id="table_tasks" layoutX="-3.0" prefHeight="288.0" prefWidth="555.0">
+                    <columns>
+                        <TableColumn fx:id="id_column" prefWidth="87.19999694824219" text="ID" />
+                        <TableColumn fx:id="task_column" prefWidth="712.0" text="Задание" />
+                    </columns>
+                </TableView>
+                <AnchorPane layoutY="291.0" prefHeight="116.0" prefWidth="550.0" style="-fx-background-color: #ff9932;">
+                    <children>
+                        <ImageView fitHeight="100.0" fitWidth="114.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/something.png" />
+                            </image>
+                        </ImageView>
+                  <TextField fx:id="field_newTask" layoutX="146.0" layoutY="14.0" prefHeight="26.0" prefWidth="382.0" promptText="Введите задачу....">
+                     <font>
+                        <Font name="Corbel" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="addTask" layoutX="216.0" layoutY="53.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #2E3348;" text="Добавить" textFill="#fafafa">
+                     <font>
+                        <Font name="Constantia" size="21.0" />
+                     </font>
+                  </Button>
+                    </children>
+                </AnchorPane>
+              <Line endX="546.4000244140625" endY="534.0" layoutX="2.0" layoutY="-245.0" startY="535.0" stroke="#2e3348" strokeWidth="3.0" />
+            </children>
+        </AnchorPane>
+      <Button fx:id="viewTask" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: #2E3348;" text="Просмотреть задачи" textFill="#fafafa">
+         <font>
+            <Font name="Corbel" size="24.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
