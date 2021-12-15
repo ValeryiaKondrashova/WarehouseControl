@@ -33,8 +33,8 @@ public class AddProductController {
     @FXML
     private Button add_add;
 
-    @FXML
-    private Label label;
+//    @FXML
+//    private Label label;
 
 
     @FXML
@@ -66,21 +66,21 @@ public class AddProductController {
     @FXML
     void SelectManuf(ActionEvent event) {
         manufacturer = manufacturer_ComboBox.getSelectionModel().getSelectedItem().toString();
-        label.setText(manufacturer);
+        // label.setText(manufacturer);
 
     }
 
     @FXML
     void SelectType(ActionEvent event) {
         type = type_ComboBox.getSelectionModel().getSelectedItem().toString();
-        label.setText(type);
+        //label.setText(type);
 
     }
 
     @FXML
     void SelectStorage(ActionEvent event) {
         storage = storage_ComboBox.getSelectionModel().getSelectedItem().toString();
-        label.setText(storage);
+        //label.setText(storage);
 
     }
 

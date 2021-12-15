@@ -66,6 +66,24 @@ public class SecondController {
                 stage.setTitle("Окно пользователя :)");
                 stage.show();
         });
+
+        back_button.setOnAction(event -> {
+            SignUp_Button_registration.getScene().getWindow().hide();
+            FXMLLoader loader2 = new FXMLLoader();
+            loader2.setLocation(getClass().getResource("Autorization.fxml"));
+
+            try {
+                loader2.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Parent root = loader2.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Авторизация");
+            stage.show();
+        });
     }
 
     private void signUpNewUser() throws IOException {

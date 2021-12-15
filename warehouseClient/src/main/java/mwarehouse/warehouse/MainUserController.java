@@ -210,6 +210,58 @@ public class MainUserController {
         System.out.println(manufacturer_product + " " + type_product + " " + model_product + " " + quantity_product + " " + price_product + " " + storage_product);
 
         // редактирование товара в БД
+        try {
+            connectionTCP = ConnectionTCP.getInstance();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//
+//        Integer id_product = 2;
+//        connectionTCP.writeObject(Command.READ1);
+//        List<Product> allProductss = (List<Product>) connectionTCP.readObject();
+//        System.out.println("model_product " + model_product);
+//        for (int i = 0; i < allProductss.size(); i++) {
+//            System.out.println("getModel " + allProductss.get(i).getModel());
+//            if(allProductss.get(i).getModel()==model_product){
+//                id_product = allProductss.get(i).getId();
+//            }
+//        }
+        
+        try {
+            Product product = new Product(manufacturer_product,
+                    type_product,
+                    model_product,
+                    quantity_product,
+                    price_product,
+                    storage_product);
+            //System.out.println("product = " + product);
+            //System.out.println("product manufacturer_product  = " + product.getManufacturer());
+
+            if (!manufacturer_product.isEmpty()){
+                product.setManufacturer(manufacturer_product);
+            }
+            if(!type_product.isEmpty()){
+                product.setType(type_product);
+            }
+            product.setModel(model_product);
+
+            product.setQuantity(quantity_product);
+
+            product.setPrice(price_product);
+
+            if(!storage_product.isEmpty()){
+                product.setStorage(storage_product);
+            }
+
+            System.out.println("setPrice" + product.getPrice());
+
+            connectionTCP.writeObject(Command.UPDATE1);
+            connectionTCP.writeObject(product);
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

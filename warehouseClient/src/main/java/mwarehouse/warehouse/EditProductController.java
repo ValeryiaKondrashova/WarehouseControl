@@ -42,7 +42,7 @@ public class EditProductController {
     private ComboBox storage_ComboBox;
 
     @FXML
-    private TextField model_edit;
+    private ComboBox model_ComboBox;
 
     @FXML
     private TextField quantity_edit;
@@ -85,25 +85,37 @@ public class EditProductController {
     }
 
     @FXML
+    void SelectModel(ActionEvent event) {
+        model = model_ComboBox.getSelectionModel().getSelectedItem().toString();
+        label.setText(model);
+    }
+
+    @FXML
     void Edit(ActionEvent event) throws IOException {
 
-        model = model_edit.getText();
+        if(model.isEmpty()){
+            qw_field.setText("Выберите модель для редактирования!");
+            qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
+        }
+        else {
+            quantity = quantity_edit.getText();
 
-        quantity = quantity_edit.getText();
+            price = price_edit.getText();
 
-        price = price_edit.getText();
+            System.out.println("manufacturer= " + manufacturer + ", type= " + type + ", model= " + model + ", quantity= " + quantity + ", price= " + price + ", storage= " + storage);
 
-        System.out.println(manufacturer + " " + type + " " + model + " " + quantity + " " + price + " " + storage);
+            MainUserController mainUserController = new MainUserController();
+            mainUserController.displayNameEdit(manufacturer,
+                    type,
+                    model,
+                    quantity,
+                    price,
+                    storage);
+            qw_field.setText("Товар успешно отредактирован!");
+            qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
+        }
 
-        MainUserController mainUserController = new MainUserController();
-        mainUserController.displayNameEdit(manufacturer,
-                type,
-                model,
-                quantity,
-                price,
-                storage);
-        qw_field.setText("Товар успешно отредактирован!");
-        qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
+
 
     }
 
@@ -112,7 +124,12 @@ public class EditProductController {
 
         manufacturer="";
         type="";
+        model = "";
         storage = "";
+
+        price = "";
+        quantity="";
+
 
         connectionTCP = ConnectionTCP.getInstance();
 
@@ -131,6 +148,11 @@ public class EditProductController {
         List<String> allStorages = (List<String>) connectionTCP.readObject();
         ObservableList allSt = FXCollections.observableArrayList(allStorages);
         storage_ComboBox.setItems(allSt);
+
+        connectionTCP.writeObject(Command.READMODEL);
+        List<String> allModels = (List<String>) connectionTCP.readObject();
+        ObservableList allMdl = FXCollections.observableArrayList(allModels);
+        model_ComboBox.setItems(allMdl);
 
     }
 

@@ -108,6 +108,13 @@ public class RequestHandler implements Runnable {
 
                 }
                 break;
+                case READMODEL: {
+                    List<String> models = null;
+                    models = productRepository.getAllModel();
+                    connectionTCP.writeObject(models);
+
+                }
+                break;
                 case UPDATE: {
                     User userr = (User) connectionTCP.readObject();
 

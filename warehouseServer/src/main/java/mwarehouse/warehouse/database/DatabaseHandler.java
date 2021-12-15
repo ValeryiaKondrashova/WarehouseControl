@@ -184,7 +184,7 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
         try (Connection connection = getDbConnection();
              //Заменить запрос!!!!!!!
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "update products JOIN manufacturers ON products.manufacturer_product = manufacturers.idManufacturer JOIN types ON products.type_product = types.idType JOIN models ON products.model_product = models.idModel JOIN storages ON  products.storage_product = storages.idStorage set manufacturer_product=(Select idManufacturer from manufacturers where manufacturer = ?), type_product=(Select idType from types where type = ?), model_product=(Select idModel from models where model = ?), quantity_product = ?, storage_product=(Select idStorage from storages where storage = ?) where idproduct = ?")) {;
+                     "update products JOIN manufacturers ON products.manufacturer_product = manufacturers.idManufacturer JOIN types ON products.type_product = types.idType JOIN models ON products.model_product = models.idModel JOIN storages ON  products.storage_product = storages.idStorage set manufacturer_product=(Select idManufacturer from manufacturers where manufacturer = ?), type_product=(Select idType from types where type = ?), model_product=(Select idModel from models where model = ?), quantity_product = ?, storage_product=(Select idStorage from storages where storage = ?), idproduct = ?")) {;
             preparedStatement.setString(1, product.getManufacturer());
             preparedStatement.setString(2, product.getType());
             preparedStatement.setString(3, product.getModel());
@@ -192,6 +192,13 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
             //preparedStatement.setDouble(5, product.getPrice());
             preparedStatement.setString(5, product.getStorage());
             preparedStatement.setInt(6, product.getId());
+
+            System.out.println("manufacturer" + product.getManufacturer());
+            System.out.println("type" + product.getType());
+            System.out.println("Model" + product.getModel());
+            System.out.println("quantity" + product.getQuantity());
+            System.out.println("storage" + product.getStorage());
+            System.out.println("id" + product.getId());
 
             preparedStatement.execute();
 
@@ -376,6 +383,27 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
         }
         return storages;
 
+    }
+
+    public List<String> getAllModel(){
+        List<String> models = new ArrayList<>();
+
+        try (Connection connection = getDbConnection();// если в скобках что-то указывается, то потом вызовется метод close()
+             Statement statement = connection.createStatement()) { //выполняет запрос // создали объект statement, для выполнения запроса по соединению connection
+
+            ResultSet resultSet = statement.executeQuery("SELECT model from models"); // в resultSet записывает полученные данные (то есть страны)  // с помощью executeQuery мы выполняем запрос
+
+            while (resultSet.next()) { //благодаря next() мы проходим по всем строкам(ячейкам) result (по факту это как двумерный массив)
+                String model = resultSet.getString("model");
+
+                //теперь создали объект techniques и поместили туда считанные данные
+                models.add(model);
+
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return models;
     }
 }
 

@@ -16,6 +16,7 @@ public enum Command implements Serializable {
     READTYPE,
     READSTORAGE,
     READTASKS,
+    READMODEL,
     DELETETASK,
     CREATETASK,
 }
