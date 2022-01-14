@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler extends Configs {   //класс DatabaseHandler наследуется от Configs
+    // Extends это ключевое слово, предназначенное для расширения реализации какого-то существующего класса
     Connection dbConnection;
 
     public Connection getDbConnection() throws ClassNotFoundException{
@@ -21,6 +22,8 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
         Class.forName("com.mysql.cj.jdbc.Driver");                             // указываем какой драйвер будем использовать
 
         //dbConnection = DriverManager.getConnection(сonnectionString,dbUser,dbPass);  //здесь заключаем само соединение
+        //  DriverManager класс попытается загрузить классы драйверов, указанные в системном свойстве "jdbc.drivers".
+        //  Это позволяет пользователю настраивать драйверы JDBC, используемые их приложениями.
         try{
             return DriverManager.getConnection(сonnectionString,dbUser,dbPass);
         } catch (SQLException e){
@@ -58,6 +61,13 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insertTask);
             prSt.setString(1,task.getTask());
+
+            // PreparedStatement: предварительно компилирует запрос, который может содержать входные параметры и выполняться
+            // несколько раз с разным набором этих параметров
+
+            // В отличии от объекта типа Statement объект типа PreparedStatement создается методом prepareStatement() объекта
+            // типа Connection. Передаваемое данному методу SQL-предложение в местах подстановки переменных значений содержит знак ?,
+            // который является частью синтаксиса и указывает на местоположение подставляемого параметра.
 
             prSt.executeUpdate(); //метод executeUpdate() позволяет занести что-либо в бд (в данном случае заносим в бд объект prSt
         } catch (SQLException e) {
@@ -128,13 +138,15 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
 
     }
 
-    public List<User> getAllUsers() throws IOException {  //создаем метод getAllTech() который вернет  List<Techh> (список стран)  //метод который отвечает за считываение из БД
-        //List<User> - это массив( точнее список) Tech (это как массив стрингов, только у нас список techniques)
+    public List<User> getAllUsers() throws IOException {  //создаем метод getAllUsers() который вернет  List<User> (список юзеров)  //метод который отвечает за считываение из БД
+        //List<User> - это массив( точнее список) User (это как массив стрингов, только у нас список users)
         List<User> users = new ArrayList<>();  //это как int a = new int();
 
+        // Connection - Соединение (сеанс) с определенной базой данных. Выполняются инструкции SQL, и результаты возвращаются в контексте соединения.
         try (Connection connection = getDbConnection();// если в скобках что-то указывается, то потом вызовется метод close()
              Statement statement = connection.createStatement()) { //выполняет запрос // создали объект statement, для выполнения запроса по соединению connection
 
+            // метод ResultSet - извлекается значения из источника данных
             ResultSet resultSet = statement.executeQuery("select users.idusers, users.name, users.login,users.password, statusName from users JOIN statususer ON users.statusUser=statususer.idstatus"); // в resultSet записывает полученные данные (то есть страны)  // с помощью executeQuery мы выполняем запрос
 
             while (resultSet.next()) { //благодаря next() мы проходим по всем строкам(ячейкам) result (по факту это как двумерный массив)
@@ -146,7 +158,7 @@ public class DatabaseHandler extends Configs {   //класс DatabaseHandler н
 
                 //считали строку из result состоящую из элементов id, name, number и тд
                 User userr = new User(id, name, login, password, statusUser);
-                //теперь создали объект techniques и поместили туда считанные данные
+                //теперь создали объект userr и поместили считанные данные в users
                 users.add(userr);
                 //  и добавили страну(userr) в массив users
             }

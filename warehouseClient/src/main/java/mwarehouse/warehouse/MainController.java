@@ -209,7 +209,7 @@ public class MainController {
             }
         });
         button_edit.setOnAction(event -> {
-            System.out.println("Клиент нажал РЕДАКТИРОВАТЬ!");
+            System.out.println("Администратор нажал РЕДАКТИРОВАТЬ!");
             try {
                 //field_unCorrect.setText("");
                 User userr = table_user.getSelectionModel().getSelectedItem().toWarehouse();

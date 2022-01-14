@@ -51,9 +51,6 @@ public class MainUserController {
     private Button button_view_byUser;
 
     @FXML
-    private Button button_add_byUser;
-
-    @FXML
     private Button button_edit_byUser;
 
     @FXML
@@ -226,7 +223,7 @@ public class MainUserController {
 //                id_product = allProductss.get(i).getId();
 //            }
 //        }
-        
+
         try {
             Product product = new Product(manufacturer_product,
                     type_product,
@@ -304,6 +301,7 @@ public class MainUserController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             connectionTCP.writeObject(Command.READ1);
             List<Product> allProductss = (List<Product>) connectionTCP.readObject();
             for (int i = 0; i < allProductss.size(); i++) {
@@ -312,6 +310,54 @@ public class MainUserController {
             }
             table_products.setItems(tableProductProperties);// устанавливаем значение обсёрвабл листа в таблицу
         });
+
+//        button_edit_byUser.setOnAction(event -> {
+//
+//            System.out.println("Пользователь нажал РЕДАКТИРОВАТЬ!");
+//
+//            try {
+//                field_unCorrect_byUser.setText("");
+//                Product product = table_products.getSelectionModel().getSelectedItem().toWWarehouse();
+//
+//                String type = field_type.getText();
+//                if (!type.isEmpty()) {
+//                    product.setType(type);
+//                }
+//                String manufacturer = field_manufacturer.getText();
+//                if (!manufacturer.isEmpty()) {
+//                    product.setManufacturer(manufacturer);
+//                }
+//                String quantity = field_quantity.getText();
+//                if (!quantity.isEmpty()) {
+//                    product.setQuantity(Integer.parseInt(quantity));
+//                }
+//                String price = field_price.getText();
+//                if (!price.isEmpty()) {
+//                    product.setPrice(Double.parseDouble(price));
+//                }
+//                String storage = field_storage.getText();
+//                if (!storage.isEmpty()) {
+//                    product.setStorage(storage);
+//                }
+//
+//                field_type.setText("");
+//                field_manufacturer.setText("");
+//                field_quantity.setText("");
+//                field_price.setText("");
+//                field_storage.setText("");
+//                field_unCorrect_byUser.setText("");
+//
+//                connectionTCP.writeObject(Command.UPDATE1);
+//                connectionTCP.writeObject(product);
+//            }
+//            catch (NullPointerException e ){
+//                field_unCorrect_byUser.setText("Выберите строку!");
+//            } catch (RuntimeException e){
+//                field_unCorrect_byUser.setText("Некорректный ввод данных. Повторите попытку!");
+//            }
+//
+//
+//        });
 
         button_delete_byUser.setOnAction(event -> {
             System.out.println("Клиент нажал на  УДАЛИТЬ (MainUserController)");

@@ -50,7 +50,7 @@
                 <Font name="Corbel" size="25.0" />
             </font>
         </Button>
-        <TextField fx:id="qw_field" layoutX="56.0" layoutY="402.0" prefHeight="38.0" prefWidth="331.0" style="-fx-background-color: #2E3348;">
+        <TextField fx:id="qw_field" layoutX="30.0" layoutY="402.0" prefHeight="38.0" prefWidth="371.0" style="-fx-background-color: #2E3348;">
             <font>
                 <Font name="Corbel" size="20.0" />
             </font>

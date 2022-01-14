@@ -14,12 +14,13 @@ public class TaskProperty {
        task = new SimpleStringProperty(taskk.getTask());
    }
 
+
+
     public int getId() { return id.get(); }
     public IntegerProperty idProperty() { return id; }
 
     public String getTask() { return task.get(); }
     public StringProperty taskProperty() { return task; }
-
 
 
     public void setId(int id) { this.id.set(id); }

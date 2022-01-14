@@ -94,22 +94,26 @@ public class AddProductController {
 
         price = price_add.getText();
 
+        try {
 
-        if(manufacturer.isEmpty() || type.isEmpty() || model.isEmpty() || quantity.isEmpty() || price.isEmpty() || storage.isEmpty()){
-            qw_field.setText("Присутствуют пустые поля!");
-            qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
-        }
-        else {
-            System.out.println(manufacturer + " " + type + " " + model + " " + quantity + " " + price + " " + storage);
+            if (manufacturer.isEmpty() || type.isEmpty() || model.isEmpty() || quantity.isEmpty() || price.isEmpty() || storage.isEmpty()) {
+                qw_field.setText("Присутствуют пустые поля!");
+                qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
+            } else {
+                System.out.println(manufacturer + " " + type + " " + model + " " + quantity + " " + price + " " + storage);
 
-            MainUserController mainUserController = new MainUserController();
-            mainUserController.displayNameAdd(manufacturer,
-                    type,
-                    model,
-                    quantity,
-                    price,
-                    storage);
-            qw_field.setText("Товар успешно добавлен!");
+                MainUserController mainUserController = new MainUserController();
+                mainUserController.displayNameAdd(manufacturer,
+                        type,
+                        model,
+                        quantity,
+                        price,
+                        storage);
+                qw_field.setText("Товар успешно добавлен!");
+                qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
+            }
+        } catch (RuntimeException e){
+            qw_field.setText("Некорректный ввод данных. Повторите попытку!");
             qw_field.setStyle("-fx-background-color: #2E3348; -fx-text-fill: #fafafa;");
         }
 
